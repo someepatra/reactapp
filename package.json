@@ -1,0 +1,24 @@
+{
+  "name": "reactapp",
+  "version": "1.0.0",
+  "description": "full stack app welcome to group repo github",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/someepatra/reactapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/someepatra/reactapp/issues"
+  },
+  "homepage": "https://github.com/someepatra/reactapp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "method-override": "^3.0.0"
+  }
+}
