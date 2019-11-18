@@ -1,4 +1,5 @@
 # reactapp
-full stack app
 
-# Creating full Stack application using react, express, momgoDb
+full stack app
+welcome to group repo
+github
