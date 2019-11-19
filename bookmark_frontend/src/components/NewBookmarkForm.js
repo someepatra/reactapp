@@ -15,7 +15,6 @@ class NewBookmarkForm extends Component {
   handleChange(event) {
     this.setState({
       [event.currentTarget.name]: event.currentTarget.value
-      //[event.currentTarget.name]: event.currentTarget.value
     });
   }
   async handleSubmit(event) {
@@ -43,8 +42,8 @@ class NewBookmarkForm extends Component {
           value={this.state.title}
           placeholder="add a bookmark"
         />
-        {/* <label htmlFor="url"></label>
-            <input type="text" id="url" name="url" onChange={this.handleChange} value={this.state.url} placeholder="add a URL"/> */}
+        <label htmlFor="url"></label>
+            <input type="text" id="url" name="url" onChange={this.handleChange} value={this.state.url} placeholder="add a URL"/>
 
         <input type="submit" value="Add!" />
       </form>

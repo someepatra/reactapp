@@ -32,7 +32,35 @@ class App extends Component {
   async componentDidMount() {
     this.getBookmarks();
   }
+  async toggleCelebrated(selectedBookmark, selectedBookmarkId) {
+    const updatedBookmark = {
+      title: selectedBookmark.title,
+   url: selectedBookmark.url
+    };
+    await axios.put(`${baseURL}/holidays/${selectedHolidayId}`, updatedHoliday);
+    // const updatedHolidays = this.state.holidays.map(holiday => {
+    //   if (holiday._id === selectedHolidayId) {
+    //     const updatedHoliday = {
+    //       ...selectedHoliday,
+    //       celebrated: !selectedHoliday.celebrated
+    //     };
+    //     return updatedHoliday;
+    //   } else {
+    //     return holiday;
+    //   }
+    });
 
+    this.setState({
+      holidays: updatedHolidays
+    });
+    //console.log(selectedHoliday);
+  }
+
+  // const updatedHoliday = {
+  //   ...selectedHoliday,
+  //   title: selectedBookmark.title,
+  // url: selectedBookmark.url
+  // };
   render() {
     return (
       <div className="App">
