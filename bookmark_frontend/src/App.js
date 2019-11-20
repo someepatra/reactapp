@@ -15,6 +15,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
+      apiIsLoaded: false,
       bookmarks: []
     }
     this.getBookmarks = this.getBookmarks.bind(this);
@@ -26,7 +27,8 @@ class App extends Component {
     const ownApiData = await axios(`${baseURL}/bookmark`);
     const data = ownApiData.data;
     this.setState({
-      bookmarks: data
+      bookmarks: data,
+      apiIsLoaded: true
     })
     console.log('bookmark data..'+ this.state.bookmarks)
   }
@@ -46,10 +48,6 @@ class App extends Component {
 
 ///Show  Bookmarks
 
-///Update Bookmarks 
-
-//Delete Bookmarks
-
 
   render() {
     return (
@@ -58,11 +56,11 @@ class App extends Component {
           <NewBookmarkForm baseURL={baseURL} getBookmarks={this.getBookmarks}/>
           <div>
             {this.state.bookmarks.map(bookmark =>  {
-              return  (
-              <p key={bookmark._id}>{bookmark.title} {""}  {bookmark.url}</p>    
-                      
+              return  ( 
+                <p key={bookmark._id}>{bookmark.title}</p>      
                 )
             })}
+            
           </div>
       </div>
     )
