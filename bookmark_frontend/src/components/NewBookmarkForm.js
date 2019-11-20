@@ -18,15 +18,18 @@ class NewBookmarkForm extends Component {
     });
   }
   async handleSubmit(event) {
+    console.log("before post...");
     const baseURL = this.props.baseURL;
     const response = await axios.post(`${baseURL}/bookmark`, {
-      title: this.state.title
-    });
-    this.setState({
+      title: this.state.title},  { url: this.state.url}
+      );
+      console.log("after post...");
+    
+      this.setState({
       title: "",
       url: ""
     });
-
+    console.log("response.data.."+response.data.url);
     //handleAddBookmark() will update the bookmarks array by using spread operator in App.js file
     //to render newly added data  on the page from the form witout refreshing the page
     this.props.handleAddBookmark(response.data);

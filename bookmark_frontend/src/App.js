@@ -18,6 +18,7 @@ class App extends Component {
       bookmarks: []
     }
     this.getBookmarks = this.getBookmarks.bind(this);
+    this.handleAddBookmark  =  this.handleAddBookmark.bind(this);
   }
 
   /// Index route  to get bookmarks
@@ -30,11 +31,12 @@ class App extends Component {
     console.log('bookmark data..'+ this.state.bookmarks)
   }
 
-  //Adding Newly created book mark to the page
+  // Adding Newly created book mark to the page
   handleAddBookmark(newBookmarkFromForm){
     this.setState({
       bookmarks: [ ...this.state.bookmarks, newBookmarkFromForm]
     })
+    console.log(this.state.bookmarks.url);
   }
 
 
@@ -57,7 +59,7 @@ class App extends Component {
           <div>
             {this.state.bookmarks.map(bookmark =>  {
               return  (
-              <p key={bookmark._id}>{bookmark.title}</p>    
+              <p key={bookmark._id}>{bookmark.title} {""}  {bookmark.url}</p>    
                       
                 )
             })}
