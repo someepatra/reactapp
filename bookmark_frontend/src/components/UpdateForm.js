@@ -11,15 +11,13 @@ class UpdateForm extends Component {
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleEditSubmit = this.handleEditSubmit.bind(this);
   }
-
   componentDidMount() {
     this.setState({
       title: this.props.bookmark.title,
       url: this.props.bookmark.url
     });
   }
-
-  handleOnChange(event) {
+    handleOnChange(event) {
     const { name, value } = event.target;
     this.setState({
       [name]: value
