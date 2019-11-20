@@ -78,17 +78,18 @@ showEdit(bookmark) {
 
     return (
       <div className="App">
-        <h1 className="heading"> BOOKMARKS APP</h1>
+        <h1 className="heading">All BookMarks</h1>
         {/* <NewBookmarkForm baseURL={baseURL} getBookmarks={this.getBookmarks} /> */}
         {showUpdateForm}
         <div>
           {this.state.bookmarks.map(bookmark => {
             return (
               <div>
+                Title
                 <a href={bookmark.url}>
-                  <p key={bookmark._id}>{bookmark.title}</p>
+                  <h5 key={bookmark._id}>{bookmark.title}</h5>
                 </a>
-                <p key={bookmark._id}>{bookmark.url}</p>
+                <h5 key={bookmark._id}>Url {bookmark.url}</h5>
                 <button
                   onClick={() => {
                     this.showEdit(bookmark);
@@ -97,7 +98,7 @@ showEdit(bookmark) {
                   update
                 </button>
                 <button onClick={() => this.deleteBookmark(bookmark._id)}>
-                  X
+                  Delete
                 </button>
               </div>
             );
