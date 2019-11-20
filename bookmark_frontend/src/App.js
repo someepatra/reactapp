@@ -49,32 +49,6 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
-  // async toggleBookmarked(selectedBookmark, selectedBookmarkId) {
-  //   console.log("double clicked");
-  //   const updatedBookmark = {
-  //     title: selectedBookmark.title,
-  //     url: selectedBookmark.url
-  //   };
-  //   await axios.put(
-  //     `${baseURL}/bookmark/${selectedBookmarkId}`,
-  //     updatedBookmark
-  //   );
-  //   const updatedBookmarks = this.state.bookmarks.map(bookmark => {
-  //     if (bookmark._id === selectedBookmarkId) {
-  //       const updatedBookmarks = {
-  //         ...selectedBookmark
-  //       };
-  //       return updatedBookmarks;
-  //     } else {
-  //       return bookmark;
-  //     }
-  //   });
-
-  //   this.setState({
-  //     bookmarks: updatedBookmarks
-  //   });
-  // }
-
   showEdit(bookmark) {
     console.log("click");
     this.setState({
