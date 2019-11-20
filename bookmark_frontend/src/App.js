@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import NewBookmarkForm from "./components/NewBookmarkForm.js";
 import "./App.css";
+import './App.sass';
 import Show from "./components/Show.js";
 import UpdateForm from "./components/UpdateForm.js";
 
@@ -78,36 +79,49 @@ showEdit(bookmark) {
 
     return (
       <div className="App">
-        <h1 className="heading"> BOOKMARKS APP</h1>
-        {/* <NewBookmarkForm baseURL={baseURL} getBookmarks={this.getBookmarks} /> */}
+        <h1 className="heading"> BOOKMARKS LIST</h1>
+        
         {showUpdateForm}
+
         <div>
           {this.state.bookmarks.map(bookmark => {
             return (
               <div>
-                <a href={bookmark.url}>
-                  <p key={bookmark._id}>{bookmark.title}</p>
-                </a>
-                <p key={bookmark._id}>{bookmark.url}</p>
-                <button
-                  onClick={() => {
-                    this.showEdit(bookmark);
-                  }}
-                >
-                  update
-                </button>
-                <button onClick={() => this.deleteBookmark(bookmark._id)}>
-                  X
-                </button>
+                <div className="columns">
+                  <div className="column">
+                    
+                    <a href={bookmark.url} key={bookmark._id}>
+                      {/* <p ></p> */}{bookmark.title}
+                    </a>   
+                   
+                
+                      <p key={bookmark._id}>{bookmark.url}</p>  
+                                 
+                    <button
+                      onClick={() => {
+                        this.showEdit(bookmark);
+                      }}
+                    >
+                      Update
+                    </button>
+                    
+                    <button onClick={() => this.deleteBookmark(bookmark._id)}>
+                     Delete
+                    </button>
+                    
+                  </div>
+                </div>
               </div>
             );
           })}
-        </div>
+       </div>
         {typeof this.state.bookmark !== "undefined" ? (
           <Show bookmark={this.state.bookmark} />
         ) : null}
-      </div>
+</div>
+      
     );
+   
   }
 }
 
