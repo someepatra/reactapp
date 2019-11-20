@@ -1,3 +1,10 @@
+body{
+  background-color: aqua;
+}
+.heading{
+  font-family: "grill sans";
+  color: blueviolet;
+}
 .App {
   text-align: center;
 }
