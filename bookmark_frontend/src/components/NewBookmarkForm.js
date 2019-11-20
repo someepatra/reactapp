@@ -44,7 +44,7 @@ class NewBookmarkForm extends Component {
     // this.props.handleAddBookmark(response.data);
   }
 
-  //
+  
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -56,10 +56,17 @@ class NewBookmarkForm extends Component {
           onChange={this.handleChange}
           value={this.state.title}
           placeholder="add a bookmark"
-        /> {" "}
+        />
         <label htmlFor="url"></label>
-            <input type="text" id="url" name="url" onChange={this.handleChange} value={this.state.url} placeholder="add a URL"/>
-        {" "}
+        <input
+          type="text"
+          id="url"
+          name="url"
+          onChange={this.handleChange}
+          value={this.state.url}
+          placeholder="add a URL"
+        />
+
         <input type="submit" value="Add!" />
       </form>
     );
