@@ -20,6 +20,7 @@ class App extends Component {
     this.getBookmarks = this.getBookmarks.bind(this);
   }
 
+  /// Index route  to get bookmarks
   async getBookmarks() {
     const ownApiData = await axios(`${baseURL}/bookmark`);
     const data = ownApiData.data;
@@ -29,9 +30,24 @@ class App extends Component {
     console.log('bookmark data..'+ this.state.bookmarks)
   }
 
+  //Adding Newly created book mark to the page
+  handleAddBookmark(newBookmarkFromForm){
+    this.setState({
+      bookmarks: [ ...this.state.bookmarks, newBookmarkFromForm]
+    })
+  }
+
+
   async componentDidMount() {
     this.getBookmarks();
   }
+
+///Show  Bookmarks
+
+///Update Bookmarks 
+
+//Delete Bookmarks
+
 
   render() {
     return (
@@ -41,8 +57,8 @@ class App extends Component {
           <div>
             {this.state.bookmarks.map(bookmark =>  {
               return  (
-              <p key={bookmark._id}>{bookmark.title}</p>
-                    
+              <p key={bookmark._id}>{bookmark.title}</p>    
+                      
                 )
             })}
           </div>

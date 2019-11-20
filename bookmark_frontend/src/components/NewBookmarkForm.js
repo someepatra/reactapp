@@ -27,7 +27,9 @@ class NewBookmarkForm extends Component {
       url: ""
     });
 
-    this.props.getBookmarks();
+    //handleAddBookmark() will update the bookmarks array by using spread operator in App.js file
+    //to render newly added data  on the page from the form witout refreshing the page
+    this.props.handleAddBookmark(response.data);
   }
 
   render() {
