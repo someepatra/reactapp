@@ -3,34 +3,28 @@ const BookmarkModel = require("./bookmark.js");
 const seedBookmark = [
   {
     title: "google",
-    url: "https://www.google.com/",
-    clicked: false
+    url: "https://www.google.com/"
   },
   {
     title: "facebook",
-    url: "https://www.facebook.com/login/",
-    clicked: false
+    url: "https://www.facebook.com/login/"
   },
   {
     title: "linkedin",
-    url: "https://www.linkedin.com/",
-    clicked: false
+    url: "https://www.linkedin.com/"
   },
   {
     title: "twitter",
-    url: "https://twitter.com/",
-    clicked: false
+    url: "https://twitter.com/"
   },
   {
     title: "github",
-    url: "https://github.com/",
-    clicked: false
+    url: "https://github.com/"
   },
 
   {
     title: "General Assembly",
-    url: "https://accounts.generalassemb.ly/identify",
-    clicked: false
+    url: "https://accounts.generalassemb.ly/identify"
   }
 ];
 // Seeding function
