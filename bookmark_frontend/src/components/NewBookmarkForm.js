@@ -10,7 +10,6 @@ class NewBookmarkForm extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
   }
 
   handleChange(event) {
@@ -18,7 +17,7 @@ class NewBookmarkForm extends Component {
       [event.currentTarget.name]: event.currentTarget.value
     });
   }
-  
+
   async handleSubmit(event) {
     const baseURL = this.props.baseURL;
     const response = await axios.post(`${baseURL}/bookmark`, {
