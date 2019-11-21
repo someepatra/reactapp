@@ -17,7 +17,7 @@ class UpdateForm extends Component {
       url: this.props.bookmark.url
     });
   }
-    handleOnChange(event) {
+  handleOnChange(event) {
     const { name, value } = event.target;
     this.setState({
       [name]: value
