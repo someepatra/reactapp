@@ -63,6 +63,7 @@ class App extends Component {
         bookmark={this.state.selectedBookmark}
         updatedBookmarks={this.state.updatedBookmarks}
         getBookmarks={this.getBookmarks}
+        showEdit={this.showEdit}
       />
     ) : (
       <NewBookmarkForm baseURL={baseURL} getBookmarks={this.getBookmarks} />
@@ -77,7 +78,6 @@ class App extends Component {
           {this.state.bookmarks.map(bookmark => {
             return (
               <div>
-                Title
                 <a href={bookmark.url}>
                   <h5 key={bookmark._id}>{bookmark.title}</h5>
                 </a>
@@ -87,7 +87,7 @@ class App extends Component {
                     this.showEdit(bookmark);
                   }}
                 >
-                  update
+                  Update
                 </button>
                 <button onClick={() => this.deleteBookmark(bookmark._id)}>
                   Delete

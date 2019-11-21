@@ -41,6 +41,7 @@ class UpdateForm extends Component {
         title: "",
         url: ""
       });
+      this.props.showEdit({});
     } catch (err) {}
   }
 
