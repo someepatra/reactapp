@@ -23,7 +23,6 @@ class App extends Component {
     };
     this.getBookmarks = this.getBookmarks.bind(this);
     this.deleteBookmark = this.deleteBookmark.bind(this);
-    // this.toggleBookmarked = this.toggleBookmarked.bind(this);
     this.showEdit = this.showEdit.bind(this);
   }
 
@@ -36,9 +35,27 @@ class App extends Component {
     console.log("bookmark data.." + this.state.bookmarks);
   }
 
+
+  showEdit(bookmark) {
+    console.log("edit  click"  + this.state.updatedbutton);
+    this.setState({
+      updatedbutton: true,
+      selectedBookmark: bookmark
+    });
+  }
+  
+  createNewBookMark() {
+    console.log("create click"  + this.state.updatedbutton);
+    this.setState({
+      updatedbutton: false
+      
+    });
+  }
   async componentDidMount() {
     this.getBookmarks();
+    // this.showEdit();
   }
+
   async deleteBookmark(id) {
     console.log("clicked");
     await axios.delete(`${baseURL}/bookmark/${id}`);
@@ -50,15 +67,9 @@ class App extends Component {
       bookmarks: filteredBookmarks
     });
   }
-  showEdit(bookmark) {
-    console.log("click");
-    this.setState({
-      updatedbutton: !this.state.updatedbutton,
-      selectedBookmark: bookmark
-    });
-  }
-
+ 
   render() {
+    console.log("button..."+this.state.updatedbutton );
     const showUpdateForm = this.state.updatedbutton ? (
       <UpdateForm
         bookmark={this.state.selectedBookmark}
@@ -68,12 +79,17 @@ class App extends Component {
     ) : (
       <NewBookmarkForm baseURL={baseURL} getBookmarks={this.getBookmarks} />
     );
-
+    
     return (
       <div className="App">
         <h1 className="heading">All BookMarks</h1>
         {/* <NewBookmarkForm baseURL={baseURL} getBookmarks={this.getBookmarks} /> */}
-        {showUpdateForm}
+        {/* <UpdateForm
+        bookmark={this.state.selectedBookmark}
+        updatedBookmarks={this.state.updatedBookmarks}
+        getBookmarks={this.getBookmarks}
+      /> */}
+       <div>{showUpdateForm}</div>
         <div>
           {this.state.bookmarks.map(bookmark => {
             return (
@@ -82,24 +98,24 @@ class App extends Component {
                 <a href={bookmark.url}>
                   <h5 key={bookmark._id}>{bookmark.title}</h5>
                 </a>
-                <h5 key={bookmark._id}>Url {bookmark.url}</h5>
-                <button
-                  onClick={() => {
-                    this.showEdit(bookmark);
-                  }}
-                >
+                <h5 key={bookmark._id}> {bookmark.url}</h5>
+                <button onClick={() => { this.showEdit(bookmark);}} >
                   update
                 </button>
                 <button onClick={() => this.deleteBookmark(bookmark._id)}>
                   Delete
                 </button>
+                <button onClick={() => { this.createNewBookMark();}} >
+                  Create
+                </button>
               </div>
             );
           })}
         </div>
-        {typeof this.state.bookmark !== "undefined" ? (
+        {/* {typeof this.state.bookmark !== "undefined" ? ( 
           <Show bookmark={this.state.bookmark} />
-        ) : null}
+        ) : null}  */}
+       
       </div>
     );
   }

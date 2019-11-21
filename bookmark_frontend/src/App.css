@@ -1,9 +1,9 @@
-
+body{
+  background-color: aqua;
+}
 .heading{
   font-family: "grill sans";
   color: blueviolet;
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 .App {
   text-align: center;
@@ -26,10 +26,4 @@
 
 .App-link {
   color: #09d3ac;
-}
-button {
-  border-radius: 10px;
-  width: 60px;
-  height: 25px;
-  margin-left: 20px;
 }
