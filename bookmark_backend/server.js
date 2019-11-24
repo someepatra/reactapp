@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const bcrypt = require("bcrypt");
 const cors = require("cors");
 
 const PORT = 3003;
